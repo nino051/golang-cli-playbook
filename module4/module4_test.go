@@ -34,8 +34,11 @@ func OpenFileAndFindNthString(filename string, nth int, expected string) bool {
 			continue
 		}
 
+		s := strings.TrimPrefix(trimmed, "\t")
+		expected := strings.TrimPrefix(expected, "\t")
+
 		// matching logic
-		ss := strings.Split(trimmed, " ")
+		ss := strings.Split(s, " ")
 		if ss[nth] == expected {
 			return true
 		}
